@@ -1,0 +1,46 @@
+// Definir o número de passageiros
+n_passageiros = 5000
+
+// Definir as faixas de carga
+faixas_de_carga = ["0-3 kg", "4-7 kg", "8-11 kg", "12-15 kg", "16-19 kg", "Acima de 19 kg"]
+
+// Definir as probabilidades para cada faixa de carga
+// Por exemplo, 20% de chance de 0-3 kg, 30% de chance de 4-7 kg, 25% de chance de 8-11 kg, 15% de chance de 12-15 kg, 8% de chance de 16-19 kg, 2% de chance de acima de 19 kg
+probabilidades = [0.20, 0.30, 0.25, 0.15, 0.08, 0.02]
+
+// Inicializar contadores para cada faixa de carga
+contadores = [0, 0, 0, 0, 0, 0]
+
+// Para cada passageiro em 1 até n_passageiros
+for i = 1 até n_passageiros:
+    // Gerar uma carga aleatória com base nas probabilidades
+    carga = escolher aleatoriamente uma faixa de carga de acordo com as probabilidades
+    
+    // Incrementar o contador da faixa de carga correspondente
+    se carga for "0-3 kg":
+        contadores[0] += 1
+    senão se carga for "4-7 kg":
+        contadores[1] += 1
+    senão se carga for "8-11 kg":
+        contadores[2] += 1
+    senão se carga for "12-15 kg":
+        contadores[3] += 1
+    senão se carga for "16-19 kg":
+        contadores[4] += 1
+    senão:
+        contadores[5] += 1
+
+// Calcular as porcentagens
+porcentagens = [contagem / n_passageiros * 100 para cada contagem em contadores]
+
+// Definir o limite máximo do eixo y para 100%
+definir limite máximo do eixo y para 100
+
+// Criar um gráfico de barras
+criar gráfico de barras com faixas_de_carga no eixo x e porcentagens no eixo y
+definir rótulo do eixo x como 'Faixa de Carga (kg)'
+definir rótulo do eixo y como 'Porcentagem de Passageiros (%)'
+definir título do gráfico como 'Distribuição de Carga por Passageiros em um Avião'
+
+// Mostrar o gráfico
+mostrar gráfico
